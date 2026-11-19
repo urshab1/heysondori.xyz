@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Video - YouTube</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f; /* ইউটিউবের ডার্ক থিম */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* একটি ডামি ইউটিউব প্লে বাটন */
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background-color: #ff0000;
+        }
+
+        .play-button svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+            margin-left: 5px;
+        }
+
+        .video-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .video-info h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* লোডিং অ্যানিমেশন */
+        .loading-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+            display: none; /* শুরুতে হাইড থাকবে */
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ভিডিও প্লেয়ার সেকশন -->
+        <div class="video-player" id="videoPlayer">
+            <div class="play-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- ভিডিওর টাইটেল ও ইনফো -->
+        <div class="video-info">
+            <h1 id="videoTitle">Loading Video Preview...</h1>
+            <p>Please wait while the video loads...</p>
+        </div>
+
+        <!-- রিডাইরেক্ট হওয়ার সময় এই লেখাটি দেখাবে -->
+        <div class="loading-text" id="loadingText">
+            <i>Redirecting to content...</i>
+        </div>
+    </div>
+
+    <!-- 
+      =========================================
+      আপনার অ্যাডস্ট্রেরা (Adsterra) লিংকটি এখানে বসান
+      =========================================
+    -->
+    <script>
+        // ⚠️ এখানে আপনার Adsterra লিংকটি দিন (যেমন: "https://www.adsterra.com/your-link")
+        const adsterraLink = "https://influenzaclod.com/k2hure28?key=119968bcd74156713e6208d2f65bc924"; 
+
+        // ইউটিউব লিংকটি (ঐচ্ছিক: আপনি চাইলে এখানে আপনার ভিডিও লিংক দিতে পারেন)
+        const youtubeLink = "https://www.youtube.com/watch?v=1jjDs69WWUQ&list=RD1jjDs69WWUQ&start_radio=1"; 
+        
+        // ভিডিওর টাইটেল (ঐচ্ছিক)
+        const videoTitle = "Amazing Video - Must Watch!";
+
+        // ১. পেজ লোড হওয়ার পর টাইটেল সেট করা
+        document.getElementById('videoTitle').innerText = videoTitle;
+
+        // ২. ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর রিডাইরেক্ট হবে
+        setTimeout(function() {
+            // লোডিং টেক্সট দেখানো
+            document.getElementById('loadingText').style.display = 'block';
+            
+            // রিডাইরেক্ট করা
+            window.location.href = adsterraLink; 
+            
+            // যদি নতুন ট্যাবে খুলতে চান, তাহলে নিচের লাইনটি ব্যবহার করুন (উপরের লাইনটি মুছে):
+            // window.open(adsterraLink, '_blank'); 
+        }, 1000); // ২ সেকেন্ড
+    </script>
+
+</body>
+</html>
